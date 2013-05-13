@@ -1,0 +1,9 @@
+<%= form_for @post do |p| %>
+<div class="field">
+  <%= p.label :title %><br/>
+  <%= p.text_field :title %><br/>
+  <%= p.label :body %><br/>
+  <%= p.text_area :body, rows: 10, cols: 'auto' %><br/>
+  <%= p.submit %>
+</div>
+  <% end %>

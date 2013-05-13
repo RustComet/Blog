@@ -1,3 +1,31 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#flash_notice {
+  background-color: #999999;
+  border: 1px #777777;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  font-family: 'Helvetica', 'Verdana', sans-serif;
+}
+
+.post_list {
+  width: 800px;
+  background-color: #DDDDDD;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  padding: 50px;
+  font-family: 'Helvetica';
+  font-weight: lighter;
+  color: #999999;
+
+  .post_link {
+    font-size: 1.5em;
+  }
+  .change {
+    font-size: 0.8em; 
+  }
+}
+

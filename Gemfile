@@ -28,6 +28,7 @@ group :test, :development do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'terminal-notifier'
+  gem 'launchy'
 end
 
 

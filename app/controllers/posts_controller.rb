@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    ## To create a new method.
     Post.create params[:post]
     redirect_to :back
   end

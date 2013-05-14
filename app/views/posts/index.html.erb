@@ -1,16 +1,23 @@
-<div class="header">
-  <h1 class="title">Isaac's Blog Posts</h1>
-</div>
-
-<div class="sidebar">
-<h3>Create a post:</h3>
-<%= render 'form' %>
-</div>
-
 <div class="post_list">
-<% for post in @posts %>
-<p class="change"><span class="post_link"><%= link_to "#{post.title}", post %></span><br/>
-<%= link_to 'Edit', edit_post_path(post) %>
-| <%= link_to 'Delete', post, :method => 'delete',:confirm => 'Are you sure you want to delete this post?'%></p>
-<% end %>
+  <% for post in @posts %>
+    <p class="change" id="post_<%= post.id %>"><span class="post_link"><%= link_to "#{post.title}", post %></span><br/>
+    <% if session[:user_id] %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      | <%= link_to 'Delete', post, :method => 'delete',:confirm => 'Are you sure you want to delete this post?'%></p>
+    <% end %>
+  <% end %>
 </div>
+
+  <div class="sidebar">
+    <% if session[:user_id] %>
+      <h3>Create a post:</h3>
+      <%= render 'form' %>
+
+      <%= link_to 'Logout', logout_path, method: :delete, confirm: 'Are you sure you want to log out?' %> <br/>
+      <%= link_to 'Edit Users', users_path %>
+
+      <% else %>
+      <br/>
+      <%= link_to 'Login', login_path %>
+    <% end %>
+  </div>

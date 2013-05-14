@@ -1,0 +1,31 @@
+
+<!--<% if notice %>
+  <p id="flash_notice"><%= notice %></p>
+  <% end %>!-->
+  <div class="sidebar">
+    <%= link_to 'Logout', logout_path, method: :delete, confirm: 'Are you sure you want to log out?' %> <br/>
+    <%= link_to 'Back to Posts', root_path %>
+  </div>
+  <div class="post_list">
+
+    <h1>Listing Users</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @users.each do |user| %>
+      <tr>
+        <td id="user_<% user.id %>"><%= user.name %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure you want to delete this user?'} %></td>
+      </tr>
+      <% end %>
+    </table>
+    <br/>
+
+    <%= link_to 'Add new User', new_user_path %>
+  </div>

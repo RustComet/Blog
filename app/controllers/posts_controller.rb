@@ -1,13 +1,18 @@
 class PostsController < ApplicationController
+  skip_before_filter :authorize
+
   def index
     @post = Post.new
     @posts = Post.all 
   end
 
   def create
-    ## To create a new method.
-    Post.create params[:post]
-    redirect_to :back
+    @post = Post.create params[:post]
+    if @post.save
+      redirect_to posts_path, notice: 'Post was successfully created'
+    else 
+      redirect_to :back, notice: 'There was an error creating your post'
+    end
   end
 
   def show

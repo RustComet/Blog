@@ -7,11 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% flash.each do |name, message| %>
-<%= content_tag :div, message, :id => "flash_#{name}" %>
-<% end %>
+  <% flash.each do |name, message| %>
+  <%= content_tag :div, message, :id => "flash_#{name}" %>
+  <% end %>
 
-<%= yield %>
+  <div class="header">
+    <h1 class="title">Isaac's Blog</h1>
+  </div>
 
-</body>
-</html>
+
+  
+  
+
+    <%= yield %>
+
+  </body>
+  </html>

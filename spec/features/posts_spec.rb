@@ -20,8 +20,6 @@ describe "Posts" do
 
       current_path.should == posts_path
       page.should have_content 'My Second Post'
-
-      save_and_open_page
     end
   end
 
@@ -55,7 +53,7 @@ describe "Posts" do
       current_path.should == posts_path
     end
 
-    it "Should not update an empty task" do
+    it "Should not update an empty post" do
       visit posts_path
       click_link 'Edit'
       fill_in 'Title', :with => ''
@@ -67,7 +65,7 @@ describe "Posts" do
   end
 
   describe "DELETE /posts" do 
-    it "Deletes a task" do
+    it "Deletes a post" do
       visit posts_path
       find("#post_#{@post.id}").click_link 'Delete'
       page.should have_content 'Post was successfully deleted'

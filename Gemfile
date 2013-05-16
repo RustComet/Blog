@@ -31,6 +31,8 @@ group :test, :development do
   gem 'launchy'
 end
 
+# gem 'devise'
+
 
 
 # To use ActiveModel has_secure_password

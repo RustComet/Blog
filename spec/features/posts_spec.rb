@@ -2,6 +2,13 @@ require 'spec_helper'
 
 describe "Posts" do
 
+    before do 
+    @user = User.create :name => 'tester', :password => '1234', :password_confirmation => '1234'
+    visit login_path
+    fill_in 'Name', :with => 'tester'
+    fill_in 'Password', :with => '1234'
+  end
+
   before do
     @post = Post.create :title => 'First Post', :body => 'Hello World'
   end
